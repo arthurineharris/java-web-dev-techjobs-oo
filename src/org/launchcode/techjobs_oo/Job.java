@@ -21,8 +21,6 @@ public class Job {
         nextId++;
     }
 
-
-
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
@@ -89,6 +87,35 @@ public class Job {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    @Override
+    public String toString() {
+        String completeJobInfo =
+                "\nID:" + id +
+                "\nName:" + name +
+                "\nEmployer:" + employer +
+                "\nLocation:" + location +
+                "\nPosition Type:" + positionType +
+                "\nCore Competency:" + coreCompetency +
+                "\n";
+        if (id == 0) {
+            System.out.println("\nID: Data Not Available");
+        } else if (name.equals("")) {
+            System.out.println("\nName: Data Not Available");
+        } else if (employer.equals("")) {
+            System.out.println("\nEmployer: Data Not Available");
+        } else if (location.equals("")) {
+            System.out.println("\nLocation: Data Not Available");
+        } else if (positionType.equals("")) {
+            System.out.println("\nPosition Type: Data Not Available");
+        } else if (coreCompetency.equals("")) {
+            System.out.println( "\nCore Competency: Data Not Available");
+        }
+
+        return completeJobInfo;
+    }
+
+
 }
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
