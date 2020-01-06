@@ -91,25 +91,16 @@ public class Job {
     @Override
     public String toString() {
         String completeJobInfo =
-                "\nID:" + id +
-                "\nName:" + name +
-                "\nEmployer:" + employer +
-                "\nLocation:" + location +
-                "\nPosition Type:" + positionType +
-                "\nCore Competency:" + coreCompetency +
+                "\nID:" + getId() +
+                "\nName:" + getName() +
+                "\nEmployer:" + getEmployer() +
+                "\nLocation:" + getLocation() +
+                "\nPosition Type:" + getPositionType() +
+                "\nCore Competency:" + getCoreCompetency() +
                 "\n";
-        if (id == 0) {
-            System.out.println("\nID: Data Not Available");
-        } else if (name.equals("")) {
-            System.out.println("\nName: Data Not Available");
-        } else if (employer.equals("")) {
-            System.out.println("\nEmployer: Data Not Available");
-        } else if (location.equals("")) {
-            System.out.println("\nLocation: Data Not Available");
-        } else if (positionType.equals("")) {
-            System.out.println("\nPosition Type: Data Not Available");
-        } else if (coreCompetency.equals("")) {
-            System.out.println( "\nCore Competency: Data Not Available");
+        if (getName().equals("") || getEmployer().equals("") || getLocation().equals("") || getPositionType().equals("") || getCoreCompetency().equals("")) {
+            System.out.println("Data Not Available");
+
         }
 
         return completeJobInfo;

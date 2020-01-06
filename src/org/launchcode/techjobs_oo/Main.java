@@ -12,9 +12,11 @@ public class Main {
         ArrayList<Job> jobs = new ArrayList<>();
         jobs.add(job1);
         jobs.add(job2);
+        jobs.add(job3);
 
         for (Job job : jobs){
             System.out.println(job);
+//            if (job.value.equals(""));
         }
     }
 
