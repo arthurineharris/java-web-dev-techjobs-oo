@@ -14,7 +14,11 @@ public abstract class JobField {
 
     public JobField(String value) {
         this();
-        this.value = value;
+        if (value == null) {
+            this.value="Data Not Available";
+        } else {
+            this.value = value;
+        }
     }
 
     public String getValue() {
@@ -31,6 +35,10 @@ public abstract class JobField {
 
     @Override
     public String toString() {
+        if (value.equals("") || value == null) {
+            value= "Data Not Available";
+        }
+
         return value;
     }
 

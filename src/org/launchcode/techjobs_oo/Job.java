@@ -23,11 +23,16 @@ public class Job {
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
-        this.name = name;
-        this.employer = employer;
-        this.location = location;
-        this.positionType = positionType;
-        this.coreCompetency = coreCompetency;
+        setName(name);
+        this.name = getName();
+        setEmployer(employer);
+        this.employer = getEmployer();
+        setLocation(location);
+        this.location = getLocation();
+        setPositionType(positionType);
+        this.positionType = getPositionType();
+        setCoreCompetency(coreCompetency);
+        this.coreCompetency = getCoreCompetency();
 
     }
 
@@ -36,7 +41,11 @@ public class Job {
     }
 
     public String getName() {
-        return name;
+        if (name == null) {
+            return "Data Not Available";
+        } else {
+            return name;
+        }
     }
 
     public void setName(String name) {
@@ -44,7 +53,12 @@ public class Job {
     }
 
     public Employer getEmployer() {
-        return employer;
+        if (this.employer == null) {
+            return new Employer("Data Not Available");
+        } else {
+            return employer;
+        }
+
     }
 
     public void setEmployer(Employer employer) {
@@ -52,7 +66,11 @@ public class Job {
     }
 
     public Location getLocation() {
-        return location;
+        if (this.location == null) {
+            return new Location("Data Not Available");
+        } else {
+            return location;
+        }
     }
 
     public void setLocation(Location location) {
@@ -60,7 +78,11 @@ public class Job {
     }
 
     public PositionType getPositionType() {
-        return positionType;
+        if (this.positionType == null) {
+            return new PositionType("Data Not Available");
+        } else {
+            return positionType;
+        }
     }
 
     public void setPositionType(PositionType positionType) {
@@ -68,7 +90,11 @@ public class Job {
     }
 
     public CoreCompetency getCoreCompetency() {
-        return coreCompetency;
+        if (this.coreCompetency == null) {
+            return new CoreCompetency( "Data Not Available");
+        } else {
+            return coreCompetency;
+        }
     }
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
@@ -90,27 +116,39 @@ public class Job {
 
     @Override
     public String toString() {
-        String completeJobInfo =
-                "\nID:" + getId() +
-                "\nName:" + getName() +
-                "\nEmployer:" + getEmployer() +
-                "\nLocation:" + getLocation() +
-                "\nPosition Type:" + getPositionType() +
-                "\nCore Competency:" + getCoreCompetency() +
-                "\n";
-        if (getName().equals("") || getEmployer().equals("") || getLocation().equals("") || getPositionType().equals("") || getCoreCompetency().equals("")) {
-            System.out.println("Data Not Available");
+        String completeJobInfo = "";
 
+        if (this.getName().equals("") || this.getName() == null) {
+            this.setName("Data Not Available");
         }
-
+        if (this.getEmployer().equals("") || this.getEmployer() == null) {
+            this.setEmployer(new Employer("Data Not Available"));
+        }
+        if (this.getLocation().equals("") || this.getLocation() == null) {
+            this.setLocation(new Location("Data Not Available"));
+        }
+        if (this.getPositionType().equals("") || this.getPositionType() == null) {
+            this.setPositionType(new PositionType("Data Not Available"));
+        }
+        if (this.getCoreCompetency().equals("") || this.getCoreCompetency() == null) {
+            this.setCoreCompetency(new CoreCompetency("Data Not Available"));
+        }
+       completeJobInfo =
+                "\nID:" + this.getId() +
+                        "\nName:" + this.getName() +
+                        "\nEmployer:" + this.getEmployer() +
+                        "\nLocation:" + this.getLocation() +
+                        "\nPosition Type:" + this.getPositionType() +
+                        "\nCore Competency:" + this.getCoreCompetency() +
+                        "\n";
         return completeJobInfo;
     }
 
 
 }
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
+// TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
+//  match.
 
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
+// TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
+//  and id.
 

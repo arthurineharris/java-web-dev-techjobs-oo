@@ -98,15 +98,13 @@ public class JobTest {
                         "\nPosition Type:" + job.getPositionType()+
                         "\nCore Competency:" + job.getCoreCompetency()+
                         "\n";
-//        String noData = "Data Not Available";
-//
-        toString();
+        System.out.println(completeJobInfo);
 
-        Assert.assertEquals(("Data Not Available"),(job.getId() == 0));
-        Assert.assertEquals(("Data Not Available"),(job.getName().equals("")));
-        Assert.assertEquals(("Data Not Available"),(job.getEmployer().equals("")));
-        Assert.assertEquals(("Data Not Available"),(job.getLocation().equals("")));
-        Assert.assertEquals(("Data Not Available"),(job.getPositionType().equals("")));
-        Assert.assertEquals(("Data Not Available"),(job.getCoreCompetency().equals("")));
+        Assert.assertEquals((1),(job.getId()));
+        Assert.assertEquals(("Data Not Available"),(job.getName()));
+        Assert.assertEquals(("Data Not Available"),(job.getEmployer()).toString());
+        Assert.assertEquals(("Data Not Available"),(job.getLocation()).toString());
+        Assert.assertEquals(("Data Not Available"),(job.getPositionType()).toString());
+        Assert.assertEquals(("Data Not Available"),(job.getCoreCompetency()).toString());
     }
 }
